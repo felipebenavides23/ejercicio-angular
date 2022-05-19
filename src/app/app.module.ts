@@ -1,16 +1,38 @@
+import { loginServices } from './login/login.service';
+import { AppRoutingModule } from './app-routing.module';
+import { LoggingService } from './LogginServices.service';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { PersonaComponent } from './personas/persona/persona.component';
+import { FormularioComponent } from './personas/formulario/formulario.component';
+import { PersonasService } from './personas.service';
+import { PersonasComponent } from './personas/personas.component';
+import { ErrorComponent } from './error/error.component';
+import { DataServices } from './Data.service';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { LoginGuardian } from './login/login-guardian.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PersonaComponent,
+    FormularioComponent,
+    PersonasComponent,
+    ErrorComponent,
+    LoginComponent,
   ],
-  imports: [
-    BrowserModule
+  imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
+  providers: [
+    LoggingService,
+    PersonasService,
+    DataServices,
+    loginServices,
+    LoginGuardian,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

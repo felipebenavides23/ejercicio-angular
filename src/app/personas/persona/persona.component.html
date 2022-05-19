@@ -1,0 +1,6 @@
+<div class="item">
+  <a [routerLink]="['/personas', i]" [queryParams]="{ parametromodificar: 1 }">
+    <button>+</button>
+  </a>
+  <p>{{ persona.nombre }} {{ persona.apellido }}</p>
+</div>
